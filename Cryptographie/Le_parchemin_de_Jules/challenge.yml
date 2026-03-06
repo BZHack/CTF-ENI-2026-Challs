@@ -1,0 +1,22 @@
+name: "Le parchemin de Jules"
+author: Xeg
+category: Cryptographie
+description: |
+  Lors d’un arrêt dans la Rome antique, un légionnaire paniqué vous confie un parchemin mystérieux.
+  Il affirme que César lui-même l’a chiffré avant une terrible prophétie.
+  Trouverez-vous le moyen de comprendre ce message historique ?
+
+  OLJX_SFZQX
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Xeg
+
+value: 5
+flags:
+  - ENI{ROMA_VICTA}
+tags:
+  - "tres facile"
+connection_info: https://chall.eni.fr
+state: visible
+version: 0.1

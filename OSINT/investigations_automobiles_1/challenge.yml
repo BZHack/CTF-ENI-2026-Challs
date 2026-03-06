@@ -1,0 +1,25 @@
+name: "Investigations automobiles (1/2)"
+author: Rik
+category: OSINT
+description: |
+  A proximité de ce concessionnaire multimarque se trouve une usine de l'une des marques vendues ici. Cette usine est devenue une société à part entière. En quelle année a été créée cette usine et à quelle date l'entreprise a-t'elle été créée ?
+
+  exemple : ENI{1893_25071975}
+
+  Note : l'OSINT utilise des méthodes de recherche d'informations, la saisie de données au hasard ne permet pas de valider ce challenge. Les liens suivants vous permettront de connaître les mots-clés utilisables sur Google et d'autres moteurs de recherche pour affiner vos recherches :
+  https://www.securiteinfo.com/attaques/hacking/google-dorks-et-google-hacking.shtml
+  https://gist.github.com/sundowndev/283efaddbcf896ab405488330d1bbc06
+
+  author: Rik
+
+value: 10
+flags:
+  - ENI{1920_31121998}
+files:
+  - ./src/public/IMG_20260106_162438.jpg
+# hints:
+#   - "L'une des marques a moins de concessions que les autres."
+tags:
+  - facile
+state: visible
+version: 0.1

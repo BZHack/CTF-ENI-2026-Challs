@@ -1,0 +1,22 @@
+name: "La capsule de 1995"
+author: Xeg
+category: Cryptographie
+description: |
+  Des archéologues du futur découvrent une capsule temporelle verrouillée par un mot de passe, nous avons réussi à extraire le hash de ce dernier.
+  Son contenu serait un avertissement capital pour notre époque.
+  Saurez-vous retrouver le mot permettant d’ouvrir la capsule ?
+
+  914daf73d1d8844afdc25d708da670355ea44b37
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Xeg
+
+value: 10
+flags:
+  - ENI{thefutureisnow}
+tags:
+  - facile
+connection_info: https://chall.eni.fr
+state: visible
+version: 0.1

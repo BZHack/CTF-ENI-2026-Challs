@@ -1,0 +1,11 @@
+{
+  "name": "graphql-ctf",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^3.12.0",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1"
+  }
+}

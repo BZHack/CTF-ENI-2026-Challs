@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    image: stf
+    ports:
+      - '80:666'
+    restart: unless-stopped

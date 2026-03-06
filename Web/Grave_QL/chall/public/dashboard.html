@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IntraCorp Dashboard</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: #f1f5f9;
+      }
+
+      header {
+        background-color: #0d47a1;
+        color: white;
+        padding: 20px 40px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .container {
+        padding: 40px;
+        max-width: 900px;
+        margin: auto;
+      }
+
+      .card {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #0d47a1;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th {
+        text-align: left;
+        background-color: #e3f2fd;
+        padding: 10px;
+        font-weight: 600;
+        width: 30%;
+      }
+
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .logout {
+        background-color: #1565c0;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+      }
+
+      .logout:hover {
+        background-color: #0d47a1;
+      }
+
+      .note-box {
+        background-color: #f8fbff;
+        border-left: 4px solid #1976d2;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+
+      .note-date {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .empty-note {
+        color: #777;
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      IntraCorp Internal Portal
+      <button class="logout" onclick="logout()">Logout</button>
+    </header>
+
+    <div class="container">
+      <div class="card">
+        <h3>Personal Information</h3>
+        <table id="personalTable"></table>
+      </div>
+
+      <div class="card">
+        <h3>Professional Information</h3>
+        <table id="profileTable"></table>
+      </div>
+
+      <div class="card">
+        <h3>Notes</h3>
+        <div id="notesContainer"></div>
+      </div>
+    </div>
+
+    <script>
+      const token = localStorage.getItem("authToken");
+      if (!token) window.location.href = "/";
+
+      async function loadProfile() {
+        const query = `
+    query {
+      me {
+        username
+        email
+        createdAt
+        lastLogin
+        role
+        profile {
+          firstName
+          lastName
+          phone
+          department
+          jobTitle
+        }
+        notes {
+          id
+          content
+          createdAt
+        }
+      }
+    }
+  `;
+
+        const response = await fetch("/graphql", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          body: JSON.stringify({ query }),
+        });
+
+        const data = await response.json();
+
+        if (!data.data || !data.data.me) {
+          localStorage.removeItem("authToken");
+          window.location.href = "/";
+          return;
+        }
+
+        const u = data.data.me;
+
+        document.getElementById("personalTable").innerHTML = `
+    <tr><th>Username</th><td>${u.username}</td></tr>
+    <tr><th>Email</th><td>${u.email}</td></tr>
+    <tr><th>First Name</th><td>${u.profile.firstName}</td></tr>
+    <tr><th>Last Name</th><td>${u.profile.lastName}</td></tr>
+    <tr><th>Phone</th><td>${u.profile.phone}</td></tr>
+    <tr><th>Account Created</th><td>${u.createdAt}</td></tr>
+    <tr><th>Last Login</th><td>${u.lastLogin}</td></tr>
+  `;
+
+        document.getElementById("profileTable").innerHTML = `
+    <tr><th>Department</th><td>${u.profile.department}</td></tr>
+    <tr><th>Job Title</th><td>${u.profile.jobTitle}</td></tr>
+    <tr><th>Role</th><td>${u.role}</td></tr>
+  `;
+
+        const notesContainer = document.getElementById("notesContainer");
+
+        if (!u.notes || u.notes.length === 0) {
+          notesContainer.innerHTML = `<div class="empty-note">No notes available.</div>`;
+        } else {
+          notesContainer.innerHTML = u.notes
+            .map(
+              (note) => `
+      <div class="note-box">
+        <div class="note-date">${note.createdAt}</div>
+        <div>${note.content}</div>
+      </div>
+    `,
+            )
+            .join("");
+        }
+      }
+
+      function logout() {
+        localStorage.removeItem("authToken");
+        window.location.href = "/";
+      }
+
+      loadProfile();
+    </script>
+  </body>
+</html>

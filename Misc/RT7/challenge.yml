@@ -1,0 +1,35 @@
+name: RT7
+author: Pumpkin
+category: Misc
+description: |
+  Un sursaut temporel a été détecté dans un secteur isolé de l'espace.
+  Vous êtes envoyé pour l'examiner.
+
+  À votre arrivée, vous contactez la base :
+
+  > Vous :
+  > « CTFplayer sur zone. Je vois une geôle flottante… L'inscription dessus est illisible, c'est comme si elle bougeait, peut-être R▮T▮7 »
+
+  La réponse de la base vous parvient :
+
+  > Base :
+  > « Atrsto d pusir livsiain bne cac CFlyr »
+
+  Vous êtes seul
+
+  Flag format : ENI{CECI_est_1_FLAG}
+
+  https://deploy.enigme-ctf.fr
+
+  author: Pumpkin
+
+value: 50
+flags:
+  - ENI{RuN_JAIL_with_R0T47_&&_rbash}
+# hints:
+#   - "https://rot47.net"
+#   - "https://www.it-connect.fr/script-bash-comment-utiliser-les-boucles-for/"
+tags:
+  - difficile
+state: visible
+version: 0.1

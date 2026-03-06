@@ -1,0 +1,23 @@
+name: "Le Rituel Interrompu"
+author: Xeg
+category: Cryptographie
+description: |
+  Dans les sous-sols du manoir de Ravenscroft, un grimoire ancien a été découvert. Il renferme un message chiffré, gravé dans le sang sur un parchemin en peau humaine.
+  Selon les archives occultes, ce message devait être lu à voix haute lors d’un rituel interdit… mais le rituel a été brutalement interrompu.
+  Dans la précipitation, les initiés ont réutilisé un élément chose pour générer plusieurs clés RSA différentes.
+  Une grave erreur qui pourrait permettre à un intrus de briser leur cryptographie et révéler leur sombre secret…
+
+
+  exemple : ENI{Fl4g_3x3mpl3}
+
+value: 30
+flags:
+  - ENI{R3uS3D_Pr1m3s_Ar3_CUrs2d}
+files:
+  - ./src/public/files.zip
+#hints:
+#  - "Info pour aide public aux joueurs"
+tags:
+  - moyen
+state: visible
+version: 0.1

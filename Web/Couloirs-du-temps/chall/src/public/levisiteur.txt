@@ -1,0 +1,6 @@
+Nom d'utilisateur :jacquouille
+Mot de passe : Fripouille
+
+Entrez dans la machine avec la formule magique suivante :
+
+ssh

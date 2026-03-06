@@ -1,0 +1,29 @@
+name: "87 Gits par heure"
+author: Papounet
+category: Forensic
+description: |
+  Une équipe de DEV a créé une app pour vous aider à anticiper vos voyages dans le temps.
+  Le projet est opensource et hébergé sur git.
+  Les bonnes pratiques de sécurité ont-elle été respectée ?
+
+  Note : 3 flags sont visibles dans ce repo
+          - FLAG1 : 86 gits par heure
+          - FLAG2 : 87 gits par heure
+          - FLAG3 : 88 gits par heure...
+
+  exemple : ENI{1987_Ya_qqUn_Au_Bout_dU_fIl}
+
+  author: Papounet
+
+value: 10
+flags:
+  - ENI{2002_Hill_V@lley_1955}
+files:
+  - ./src/public/time-travel-app.zip
+# hints:
+#   - "C'est du git, alors on init, on add, on commit et des fois on commit des fichiers qu'on devrait pas..."
+tags:
+  - Facile
+connection_info: https://87-gits-par-heure.eni.fr
+state: visible
+version: 1.0

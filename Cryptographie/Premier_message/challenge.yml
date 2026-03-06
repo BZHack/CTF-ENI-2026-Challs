@@ -1,0 +1,22 @@
+name: "Premier message"
+author: Xeg
+category: Cryptographie
+description: |
+  Lors de ton arrivée dans une époque inconnue, un message codé apparaît sur ton bracelet temporel.
+  Les symboles semblent familiers… Comme si chaque caractère avait traversé une autre dimension.
+  Décodera-tu ce message qui sera la base pour connaître la prochaine étape de ton voyage ?
+
+  QjFlTlYzTlVlX0RhTnNfQ2U3dDNfQVYzTjdVcjM=
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Xeg
+
+value: 5
+flags:
+  - ENI{B1eNV3NUe_DaNs_Ce7t3_AV3N7Ur3}
+tags:
+  - "tres facile"
+connection_info: https://chall.eni.fr
+state: visible
+version: 0.1

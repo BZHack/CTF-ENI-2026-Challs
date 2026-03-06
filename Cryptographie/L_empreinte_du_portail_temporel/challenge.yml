@@ -1,0 +1,22 @@
+name: "L’empreinte du portail temporel"
+author: Xeg
+category: Cryptographie
+description: |
+  Pour ouvrir un portail datant de l’Ère des Chronomanciens, vous devez vérifier l’intégrité d’un ancien artefact.
+  Seule l'empreinte exacte permettra d'activer le mécanisme.
+  Pouvez-vous retrouver le mot correspond à cette empreinte ?
+
+  fc964faa4f01f73989ff4f4a649ed7be
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Xeg
+
+value: 10
+flags:
+  - ENI{chronos}
+tags:
+  - facile
+connection_info: https://chall.eni.fr
+state: visible
+version: 0.1

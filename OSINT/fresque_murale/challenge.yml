@@ -1,0 +1,20 @@
+name: "Fresque murale"
+author: Rik
+category: OSINT
+description: |
+  En marchant dans la rue, tu rencontres cette fresque murale. Elle a été peinte par deux artistes lors d’un événement. Ton bracelet temporel te permettra de remonter le temps jusqu'à l'événement, mais tu dois d'abord trouver des informations : les noms des deux artistes à l’origine de cette fresque et la date à laquelle l'événement s’est terminé.
+  Note : un des artistes a un nom d'artiste en deux mots, le nom le plus courant est à utiliser.
+
+  exemple : ENI{artiste1_artiste2_01-12-2025}
+
+  author: Rik
+
+value: 10
+flags:
+  - ENI{sainer_zoer_27-10-2019}
+files:
+  - ./src/public/fresque.jpg
+tags:
+  - facile
+state: visible
+version: 0.1

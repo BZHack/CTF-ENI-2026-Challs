@@ -1,0 +1,22 @@
+name: "Mémoire Liquide"
+author: Elymaro
+category: Web
+description: |
+  Enoncé
+
+  Jacky garde toujours une vieille flask dont il refuse de se séparer. Certains disent que ceux qui en comprendront vraiment l’histoire pourront remonter le temps… et en découvrir un secret.
+
+  https://deploy.enigme-ctf.fr
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Elymaro
+
+value: 10
+flags:
+  - ENI{flAsQuE_c0Okie_cHal1enGe}
+tags:
+  - facile
+connection_info: https://deploy.enigme-ctf.fr
+state: visible
+version: 0.1

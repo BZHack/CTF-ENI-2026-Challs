@@ -1,0 +1,18 @@
+name: "Le garage disparu"
+author: Rik
+category: OSINT
+description: |
+  Lors d'une sortie, tu tombes sur cette vieille voiture abandonnée. Fan d'exploration, tu t'intéresses à son histoire et aimerais voir le garage avant sa fermeture grâce à ton bracelet temporel. Trouve le numéro SIREN de cette entreprise et l'année de fermeture du garage.
+  exemple : ENI{123456789_1980}
+
+  author: Rik
+
+value: 10
+flags:
+  - ENI{332551407_1990}
+files:
+  - ./src/public/garage_disparu.jpg
+tags:
+  - facile
+state: visible
+version: 0.1

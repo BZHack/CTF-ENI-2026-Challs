@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IntraCorp Portal</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #0d47a1, #1976d2);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .wrapper {
+        display: flex;
+        width: 820px;
+        height: 460px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      .left {
+        width: 40%;
+        background: #0d47a1;
+        color: white;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .left h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      .left p {
+        margin-top: 15px;
+        opacity: 0.9;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .right {
+        width: 60%;
+        padding: 60px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .right h2 {
+        margin-bottom: 30px;
+        color: #0d47a1;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 18px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+
+      input:focus {
+        border-color: #1976d2;
+        outline: none;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #1976d2;
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      button:hover {
+        background: #0d47a1;
+      }
+
+      .error {
+        color: #c62828;
+        margin-top: 10px;
+        font-size: 13px;
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 20px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="left">
+        <h1>IntraCorp</h1>
+        <p>
+          Internal secure portal<br />
+          Authentication required<br /><br />
+          Production Environment<br />
+          EU-West-3
+        </p>
+      </div>
+
+      <div class="right">
+        <h2>Sign in</h2>
+        <form id="loginForm">
+          <input type="text" id="username" placeholder="Username" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Authenticate</button>
+        </form>
+        <div id="message"></div>
+      </div>
+    </div>
+
+    <div class="footer">IntraCorp © 2026 · Confidential Internal Access</div>
+
+    <script>
+      async function sha512(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest("SHA-512", msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+      }
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const passwordHash = await sha512(password);
+
+          const query = `
+    mutation Login($username: String!, $passwordHash: String!) {
+      login(username: $username, passwordHash: $passwordHash) {
+        token
+      }
+    }
+  `;
+
+          const response = await fetch("/graphql", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              query,
+              variables: { username, passwordHash },
+            }),
+          });
+
+          const data = await response.json();
+
+          if (data.data && data.data.login) {
+            localStorage.setItem("authToken", data.data.login.token);
+            window.location.href = "/dashboard.html";
+          } else {
+            const msg = document.getElementById("message");
+            msg.className = "error";
+            msg.textContent = "Authentication failed";
+          }
+        });
+    </script>
+  </body>
+</html>

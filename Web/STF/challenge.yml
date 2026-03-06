@@ -1,0 +1,22 @@
+name: "STF"
+author: Elymaro
+category: Web
+description: |
+  Enoncé
+
+  Nous sommes en 1864. Un nouveau salon d'un nouveau genre ouvre ses portes dans quelques mois pour présenter les technologies que l'on a des chances de voir apparaîtres dans les années 2000 (voitures volantes, robots, etc). Inscrivez-vous vite, les places sont limitées !
+
+  https://deploy.enigme-ctf.fr
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Elymaro
+
+value: 30
+flags:
+  - ENI{s4l0n_1964_T3chnOs_DU_Turfu}
+tags:
+  - moyen
+connection_info: https://deploy.enigme-ctf.fr
+state: visible
+version: 0.1

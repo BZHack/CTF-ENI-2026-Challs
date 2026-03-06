@@ -1,0 +1,22 @@
+name: "Le terminal du hacker du passé"
+author: Xeg
+category: Cryptographie
+description: |
+  Lors d’un saut temporel vers l’année 2999, vous tombez sur un vieux terminal abandonné appartenant à un hacker légendaire.
+  Le seul message encore lisible semble être écrit dans un dialecte numérique utilisé par les pirates du passé.
+  Saurez-vous traduire ce message en langage clair ?
+
+  N008 5Cr1P7 K1DD135
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Xeg
+
+value: 5
+flags:
+  - ENI{NOOB_SCRIPT_KIDDIES}
+tags:
+  - "tres facile"
+connection_info: https://chall.eni.fr
+state: visible
+version: 0.1

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title or "Flask Challenge" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="./static/style.css">
+
+  <script>
+    function toggleMenu(){
+      document.getElementById('nav').classList.toggle('show');
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>
+      <a href="/" style="text-decoration: none; color: inherit;">🍾 Mémoire liquide</a>
+    </h1>
+    <span class="burger" onclick="toggleMenu()">☰</span>
+  </header>
+
+  <nav id="nav">
+     {% if request.path != '/' %}
+      <a href="/">Accueil</a>
+    {% endif %}
+    {% if not session.get('username') %}
+      <a href="/login">Se connecter</a>
+      <a href="/register">S'inscrire</a>
+    {% else %}
+      <a href="/profile">Profil</a>
+      <a href="/admin">Admin</a>
+      <a href="/logout">Deconnexion</a>
+    {% endif %}
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

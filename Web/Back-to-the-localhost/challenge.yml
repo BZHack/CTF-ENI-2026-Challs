@@ -1,0 +1,20 @@
+name: "Back to the localhost"
+author: Rik
+category: Web
+description: |
+    L'administrateur de la société Voyageurs du temps a mis en ligne le nouvel environnement Web de la société. Mais est-il vraiment sécurisé ? Le mot de passe de l'administrateur sera le flag.
+
+    https://chall.eni.fr
+
+    exemple : ENI{FLAG_FORMAT}
+value: 50
+flags:
+  - ENI{/dev/null}
+hints:
+  - "Intéressez-vous à l'intranet. Une erreur a été commise."
+  - "Parfois, quand on modifie un fichier important, on renomme ou copie l'ancienne version pour pouvoir restaurer rapidement. On ne sait jamais, ça peut aider..."
+tags:
+  - difficile
+connection_info: https://chall.eni.fr
+state: visible
+version: 0.1

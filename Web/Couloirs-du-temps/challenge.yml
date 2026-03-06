@@ -1,0 +1,26 @@
+name: "Le couloir du temps"
+author: Rattack
+category: Web
+description: |
+  Le mot de passe de la machine à explorer le temps s'est perdu dans les couloirs du temps !
+  À vous de retrouver le mot de passe pour démarrer la machine.
+  Un parchemin levisiteur.txt vous donne le premier accès à la machine à explorer le temps.
+
+  https://deploy.enigme-ctf.fr
+
+  author: Rattack
+
+value: 30
+flags:
+  - ENI{Fl4g_LeC0uL0ir_Du_T3MPS}
+files:
+  - ./chall/src/public/levisiteur.txt
+# hints:
+#   - "https://www.rfc-editor.org/rfc/rfc7435.txt"
+#   - "https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Methods"
+#   - "https://fr.wikipedia.org/wiki/Vuln%C3%A9rabilit%C3%A9_des_services_d%27authentification_web"
+tags:
+  - moyen
+connection_info: https://deploy.enigme-ctf.fr
+state: visible
+version: 0.1

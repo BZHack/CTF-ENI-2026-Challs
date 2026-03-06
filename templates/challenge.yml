@@ -1,0 +1,22 @@
+name: "Challenge"
+author: 0xlildoudou
+category: Web
+description: |
+  Enoncé
+
+  https://chall.eni.fr
+
+  exemple : ENI{FLAG_FORMAT}
+
+value: 500
+flags:
+  - ENI{Fl4g_3x3mpl3}
+files:
+  - ./chall/files.zip
+hints:
+  - "Info pour aide public aux joueurs"
+tags:
+  - facile
+connection_info: https://chall.eni.fr
+state: hidden
+version: 0.1

@@ -1,0 +1,22 @@
+name: "Année 60"
+author: Elymaro
+category: Web
+description: |
+  Enoncé
+
+  L'administrateur de ce site retro a essayé de bien faire les choses... mais malheureusement une vulnérabilité béante est présente. Vous devriez trouver un petit cadeau au sein de son repertoire utilisateur.
+
+  https://deploy.enigme-ctf.fr
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Elymaro
+
+value: 10
+flags:
+  - ENI{my_k1tchen_Just_c4lled_me}
+tags:
+  - facile
+connection_info: https://deploy.enigme-ctf.fr
+state: visible
+version: 0.1

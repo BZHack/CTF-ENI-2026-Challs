@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+">
+
+  <h2 style="margin-bottom: 5px;">Profil</h2>
+
+  <p style="margin-bottom: 25px; font-size: 1.1em; text-align:center;">
+    Bienvenue <strong>{{ session.get('username', 'guest') }}</strong>
+  </p>
+
+  <table class="pretty-table" style="width: 420px;">
+    <thead>
+      <tr>
+        <th>Champ</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>{{ session.get('username', 'guest') }}</td>
+      </tr>
+
+      <tr>
+        <td>Rôle</td>
+        <td>
+          {% if session.get('is_admin') %}
+            Administrateur
+          {% else %}
+            Utilisateur
+          {% endif %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}

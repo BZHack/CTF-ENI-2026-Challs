@@ -1,0 +1,22 @@
+name: "Back-Up"
+author: Elymaro
+category: Web
+description: |
+  Enoncé
+
+  Des rapports de maintenance sont automatiquement générés. Heureusement depuis la version 1.3 de cette tâche, aucune information sensible ne fuite au sein du contenu.
+
+  https://deploy.enigme-ctf.fr
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: Elymaro
+
+value: 50
+flags:
+  - ENI{C4ch3_mai5_TOuJ0uRs_Pr35eNT_A_qu1_saIT_VoiR}
+tags:
+  - Difficile
+connection_info: https://deploy.enigme-ctf.fr
+state: visible
+version: 0.1

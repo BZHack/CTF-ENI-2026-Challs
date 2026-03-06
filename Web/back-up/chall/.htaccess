@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^details/([A-Fa-f0-9]{32})/download$ /details.php?token=$1&download=1 [L,QSA]
+RewriteRule ^details/([A-Fa-f0-9]{32})$ /details.php?token=$1 [L,QSA]

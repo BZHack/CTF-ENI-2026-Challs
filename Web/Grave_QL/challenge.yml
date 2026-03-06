@@ -1,0 +1,21 @@
+name: "Grave_QL"
+author: Elymaro
+category: Web
+description: |
+  Enoncé
+
+  Un portail interne vient d'être déployé. L'authentification semble correcte… en apparence.
+
+  exemple : ENI{FLAG_FORMAT}
+
+  https://deploy.enigme-ctf.fr
+
+  author: Elymaro
+
+value: 50
+flags:
+  - ENI{Gr4phQL_IntrOspection_1s_N1111c3}
+tags:
+  - difficile
+state: visible
+version: 0.1

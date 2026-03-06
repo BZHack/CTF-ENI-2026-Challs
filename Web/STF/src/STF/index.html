@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salon des Technologies du Futur – Inscription</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <style>
+      .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        width: 180px;
+        font-weight: bold;
+      }
+
+      .form-group input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #2f3640;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+      }
+
+      button:hover {
+        background-color: #3d3d3d;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Salon des Technologies du Futur</h1>
+      <nav>
+        <ul>
+          <li><span class="red-box">Ouverture le 8 juin prochain</span></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-background-umbra">
+      <div class="content-wrapper">
+        <div class="hero">
+          <h2>Obtenez vos invitations</h2>
+          <p>
+            Les portes du
+            <strong>Salon des Technologies du Futur – édition 1964</strong>
+            s’ouvriront bientôt.
+          </p>
+          <p>
+            Pour recevoir vos accès gratuits à l’inauguration officielle,
+            veuillez compléter le forumulaire ci-dessous.
+          </p>
+        </div>
+
+        <div class="info">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="firstname">Prénom :</label>
+              <input
+                type="text"
+                id="firstname"
+                name="firstname"
+                minlength="3"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastname">Nom :</label>
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                minlength="3"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Adresse Email :</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <button type="submit">Valider mon inscription</button>
+            <p id="message"></p>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(this);
+          const messageDiv = document.getElementById("message");
+          const serverUrl = `/send_email`;
+
+          let dots = "";
+          messageDiv.innerHTML = "Envoi en cours";
+          messageDiv.style.color = "#4a69bd";
+          const animationInterval = setInterval(() => {
+            dots = dots.length < 3 ? dots + "." : "";
+            messageDiv.innerHTML = `Envoi en cours${dots}`;
+          }, 500);
+
+          try {
+            const response = await fetch(serverUrl, {
+              method: "POST",
+              body: new URLSearchParams(formData),
+            });
+
+            clearInterval(animationInterval);
+
+            if (!response.ok) {
+              throw new Error("Erreur de communication avec le serveur.");
+            }
+
+            const serverResponse = await response.text();
+
+            if (serverResponse === "Mail envoyé avec succès !") {
+              messageDiv.innerHTML = serverResponse;
+              messageDiv.style.color = "green";
+            } else {
+              messageDiv.innerHTML = serverResponse;
+              messageDiv.style.color = "#d63031";
+            }
+          } catch (error) {
+            messageDiv.innerHTML = error.message;
+            messageDiv.style.color = "#d63031";
+          }
+        });
+    </script>
+
+    <footer>
+      <p>© 1964 – Salon des Technologies du Futur</p>
+    </footer>
+  </body>
+</html>

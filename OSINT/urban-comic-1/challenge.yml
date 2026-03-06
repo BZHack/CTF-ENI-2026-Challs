@@ -1,0 +1,23 @@
+name: "Urban Comic (1/2)"
+author: Rik
+category: OSINT
+description: |
+  En marchant dans la rue, tu rencontres cette fresque, peinte pour un anniversaire.  Ton bracelet temporel te permettra de remonter le temps jusqu'à l'événement, mais tu dois d'abord trouver des informations : en quelle année a t'elle été peinte et par quel groupe d'artistes ?
+
+  exemple : ENI{1999_BAILEY}
+
+  Note : l'OSINT utilise des méthodes de recherche d'informations, la saisie de données au hasard ne permet pas de valider ce challenge. Les liens suivants vous permettront de connaître les mots-clés utilisables sur Google et d'autres moteurs de recherche pour affiner vos requêtes :
+  https://www.securiteinfo.com/attaques/hacking/google-dorks-et-google-hacking.shtml
+  https://gist.github.com/sundowndev/283efaddbcf896ab405488330d1bbc06
+
+  author: Rik
+
+value: 10
+flags:
+  - ENI{2018_FAILE}
+files:
+  - ./src/public/fresque_comic.jpg
+tags:
+  - facile
+state: visible
+version: 0.1

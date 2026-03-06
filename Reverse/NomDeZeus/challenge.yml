@@ -1,0 +1,21 @@
+name: "Nom de Zeus"
+author: D00f
+category: Reverse
+description: |
+  Nom de Zeus, Marty ! On doit repartir immédiatement, mais le convecteur temporel est verrouillé ! J'avais codé une sécurité pour éviter qu'on ne vole la DeLorean, mais impossible de remettre la main sur le code source. Il ne reste que ce binaire compilé. Retrouve le mot de passe avant que le continuum espace-temps ne s'effondre !
+
+  exemple : ENI{FLAG_FORMAT}
+
+  author: D00f
+
+value: 5
+flags:
+  - "ENI{221_Gigowatts!}"
+files:
+  - ./src/public/nom_de_zeus
+# hints:
+#   - "Même sans le code source, le binaire contient encore des traces lisibles. Il suffit de tirer les bonnes ficelles pour voir ce qui est écrit en clair !"
+tags:
+  - très facile
+state: visible
+version: 0.1
